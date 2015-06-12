@@ -31,7 +31,7 @@ namespace Core\Session;
  *
  * @author fabien.sanchez
  */
-class Session extends \App\Collection {
+class Session extends \Core\Collection {
 
     public function __construct() {
         $this->start();
