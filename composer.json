@@ -12,6 +12,7 @@
         }
     },
     "require": {
-        "fzed51/my-routeur": "dev-master"
+        "fzed51/routeur": "dev-master",
+        "fzed51/vue": "dev-master"
     }
 }

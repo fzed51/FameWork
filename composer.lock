@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "334cf9b6461bf46e6d3e0de6bcebaee5",
+    "hash": "46450fd391324e21aa20f3327db4cb79",
     "packages": [
         {
-            "name": "fzed51/my-routeur",
+            "name": "fzed51/routeur",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/fzed51/MyRouteur.git",
-                "reference": "4765654f779752fe5c28292cb9f609fa8ad97e79"
+                "url": "https://github.com/fzed51/Routeur.git",
+                "reference": "435c453f5d9269a4d25a2277738321d1a23eca79"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzed51/MyRouteur/zipball/4765654f779752fe5c28292cb9f609fa8ad97e79",
-                "reference": "4765654f779752fe5c28292cb9f609fa8ad97e79",
+                "url": "https://api.github.com/repos/fzed51/Routeur/zipball/435c453f5d9269a4d25a2277738321d1a23eca79",
+                "reference": "435c453f5d9269a4d25a2277738321d1a23eca79",
                 "shasum": ""
             },
             "require": {
@@ -29,7 +29,7 @@
                     "Core\\": "core/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "http://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -40,14 +40,51 @@
                 }
             ],
             "description": "Routeur PHP simple. Il est autonome un maximum pour eviter les dépendances.",
-            "time": "2015-06-11 15:28:21"
+            "time": "2015-06-12 13:06:54"
+        },
+        {
+            "name": "fzed51/vue",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fzed51/Vue.git",
+                "reference": "311e373a86438ee9c99745e16657984b99ce34ac"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fzed51/Vue/zipball/311e373a86438ee9c99745e16657984b99ce34ac",
+                "reference": "311e373a86438ee9c99745e16657984b99ce34ac",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0"
+            },
+            "type": "composent-fzed51-core",
+            "autoload": {
+                "psr-4": {
+                    "Core\\": "core/"
+                }
+            },
+            "notification-url": "http://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "fabien.sanchez",
+                    "email": "fzed51@users.noreply.github.com"
+                }
+            ],
+            "description": "Vue PHP simple.",
+            "time": "2015-06-12 13:11:45"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "fzed51/my-routeur": 20
+        "fzed51/routeur": 20,
+        "fzed51/vue": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
