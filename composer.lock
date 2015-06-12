@@ -1,0 +1,56 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "334cf9b6461bf46e6d3e0de6bcebaee5",
+    "packages": [
+        {
+            "name": "fzed51/my-routeur",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fzed51/MyRouteur.git",
+                "reference": "4765654f779752fe5c28292cb9f609fa8ad97e79"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fzed51/MyRouteur/zipball/4765654f779752fe5c28292cb9f609fa8ad97e79",
+                "reference": "4765654f779752fe5c28292cb9f609fa8ad97e79",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0"
+            },
+            "type": "composent-fzed51-core",
+            "autoload": {
+                "psr-4": {
+                    "Core\\": "core/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "fabien.sanchez",
+                    "email": "fzed51+packagist@gmail.com"
+                }
+            ],
+            "description": "Routeur PHP simple. Il est autonome un maximum pour eviter les dépendances.",
+            "time": "2015-06-11 15:28:21"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "fzed51/my-routeur": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

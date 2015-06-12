@@ -1,0 +1,17 @@
+{
+    "name": "fabien.sanchez/framework",
+    "authors": [
+        {
+            "name": "fzed51",
+            "email": "fzed51@users.noreply.github.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Core\\": "core/"
+        }
+    },
+    "require": {
+        "fzed51/my-routeur": "dev-master"
+    }
+}
