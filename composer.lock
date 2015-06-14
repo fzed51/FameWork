@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "46450fd391324e21aa20f3327db4cb79",
+    "hash": "405114fba6f5d07f981acd780c1c3001",
     "packages": [
         {
             "name": "fzed51/routeur",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzed51/Routeur.git",
-                "reference": "435c453f5d9269a4d25a2277738321d1a23eca79"
+                "reference": "b23cc1bc0dc06dbb708435bb4406889b8fddba04"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzed51/Routeur/zipball/435c453f5d9269a4d25a2277738321d1a23eca79",
-                "reference": "435c453f5d9269a4d25a2277738321d1a23eca79",
+                "url": "https://api.github.com/repos/fzed51/Routeur/zipball/b23cc1bc0dc06dbb708435bb4406889b8fddba04",
+                "reference": "b23cc1bc0dc06dbb708435bb4406889b8fddba04",
                 "shasum": ""
             },
             "require": {
@@ -29,18 +29,18 @@
                     "Core\\": "core/"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
                     "name": "fabien.sanchez",
-                    "email": "fzed51+packagist@gmail.com"
+                    "email": "fzed51@users.noreply.github.com"
                 }
             ],
             "description": "Routeur PHP simple. Il est autonome un maximum pour eviter les dépendances.",
-            "time": "2015-06-12 13:06:54"
+            "time": "2015-06-14 12:36:22"
         },
         {
             "name": "fzed51/vue",
@@ -65,7 +65,7 @@
                     "Core\\": "core/"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
