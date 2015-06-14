@@ -2,6 +2,10 @@
 
 namespace App\Controleur;
 
+use Core\Controleur\Controleur;
+use Core\Session\Csrf;
+use Core\Session\Session;
+
 /**
  * Description of News
  *
@@ -22,7 +26,7 @@ class News extends Controleur {
     }
 
     function post_Create() {
-        $csrf = new \Core\Session\Csrf(new \Core\Session\Session());
+        $csrf = new Csrf(new Session());
         $csrf->check();
         \DB::insertInTable('NEWS', \Requete::input('data'));
         $this->index();
@@ -43,14 +47,14 @@ class News extends Controleur {
     }
 
     function post_Update($id) {
-        $csrf = new \Core\Session\Csrf(new \Core\Session\Session());
+        $csrf = new Csrf(new Session());
         $csrf->check();
         \DB::updateIdTable('NEWS', $id, \Requete::input('data'));
         $this->index();
     }
 
     function get_delete($id) {
-        $csrf = new \Core\Session\Csrf(new \Core\Session\Session());
+        $csrf = new Csrf(new Session());
         $csrf->check();
         \DB::deleteIdTable('NEWS', $id);
         $this->index();
