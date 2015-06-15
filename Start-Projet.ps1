@@ -25,7 +25,7 @@ if (@(Get-Command composer* -ErrorAction SilentlyContinue).count -eq 0){
 	New-Alias -Name composer -Value $((Resolve-Path './composer.bat').Path)
 }
 
-.\Clear-Project.ps1
+.\Clear-Projet.ps1
 $status = $( git status --porcelain )
 if( $status ){
 	Write-Host "Dossier de travail modifié" -f white
