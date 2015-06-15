@@ -48,12 +48,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzed51/Vue.git",
-                "reference": "311e373a86438ee9c99745e16657984b99ce34ac"
+                "reference": "e9b4274d59fdf780de3cf64e20e600048bffe37e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzed51/Vue/zipball/311e373a86438ee9c99745e16657984b99ce34ac",
-                "reference": "311e373a86438ee9c99745e16657984b99ce34ac",
+                "url": "https://api.github.com/repos/fzed51/Vue/zipball/e9b4274d59fdf780de3cf64e20e600048bffe37e",
+                "reference": "e9b4274d59fdf780de3cf64e20e600048bffe37e",
                 "shasum": ""
             },
             "require": {
@@ -76,7 +76,7 @@
                 }
             ],
             "description": "Vue PHP simple.",
-            "time": "2015-06-12 13:11:45"
+            "time": "2015-06-15 00:35:49"
         }
     ],
     "packages-dev": [],
