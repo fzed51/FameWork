@@ -6,9 +6,9 @@ define('ROOT', __DIR__ . DS);
 $dir = basename(ROOT);
 $tabUrl = explode($dir, $_SERVER['REQUEST_URI']);
 if (count($tabUrl) > 1) {
-    define('WEBROOT', $tabUrl[0] . $dir . WS);
+	define('WEBROOT', $tabUrl[0] . $dir . WS);
 } else {
-    define('WEBROOT', WS);
+	define('WEBROOT', WS);
 }
 
 // Initialise le répertoir de travail pour
@@ -25,13 +25,15 @@ $requete = new Requete();
 Vue::$DefautLayout = 'defaut';
 Vue::$DossierLayout = __DIR__ . DS . 'page' . DS . 'layout';
 Vue::$DossierModel = __DIR__ . DS . 'page';
+Vue::$DossierScript = __DIR__ . DS . 'public' . DS . 'script';
+Vue::$DossierStyle = __DIR__ . DS . 'public' . DS . 'style';
 
 include_if_exist('./app/route.php');
 
 try {
-    Routeur::reparti($requete->client['METHODE'], $requete->client['URI']);
+	Routeur::reparti($requete->client['METHODE'], $requete->client['URI']);
 } catch (\Core\Routeur\RouteNotFoundException $e) {
-    header("HTTP/1.0 404 Not Found");
+	header("HTTP/1.0 404 Not Found");
 } catch (Exception $e) {
-    header("HTTP/1.0 500 Internal Server Error");
+	header("HTTP/1.0 500 Internal Server Error");
 }
