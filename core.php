@@ -38,10 +38,12 @@ try {
     echo '-->';
 } catch (\Core\Routeur\RouteNotFoundException $e) {
     header("HTTP/1.0 404 Not Found");
-    echo "<h1>{$e->getMessage()}</h1>";
+    echo "<h1>Error 404 :</h1>";
+    echo "<h2>{$e->getMessage()}</h2>";
     echo "<p>La ressource n'a pas été trouvée</p>";
 } catch (Exception $e) {
     header("HTTP/1.0 500 Internal Server Error");
-    echo "<h1>{$e->getMessage()}</h1>";
+    echo "<h1>Error 500 :</h1>";
+    echo "<h2>{$e->getMessage()}</h2>";
     echo "<pre>{$e->getTraceAsString()}</pre>";
 }
