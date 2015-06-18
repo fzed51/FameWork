@@ -37,10 +37,15 @@ class Db {
     protected static $fileData = __DIR__ . "\\db.sqlite";
 
     public static function getInstance() {
+        static::TestExtensionChargee();
         if (is_null(static::$instance)) {
             static::$instance = new \PDO('sqlite:' . static::$fileData);
         }
         return static::$instance;
+    }
+
+    public static function TestExtensionChargee() {
+        $extensions = get_loaded_extensions();
     }
 
     public static function getAllTable($tableName) {

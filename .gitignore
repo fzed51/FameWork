@@ -26,6 +26,7 @@ vendor/
 
 ### Projet ###
 # ----------
+log/
 *.log
 *.log.txt
 *.cache
