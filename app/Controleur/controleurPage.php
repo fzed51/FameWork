@@ -2,6 +2,9 @@
 
 namespace App\Controleur;
 
+use Core\Controleur\Controleur;
+use Core\Routeur\Routeur;
+
 /**
  * Description of controleurPage
  *
