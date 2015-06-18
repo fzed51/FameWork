@@ -23,8 +23,8 @@ $requete = new Requete();
 
 // Parametrage des vues
 Vue::$DefautLayout = 'defaut';
-Vue::$DossierLayout = __DIR__ . DS . 'page' . DS . 'layout';
-Vue::$DossierModel = __DIR__ . DS . 'page';
+Vue::$DossierLayout = __DIR__ . DS . 'app' . DS . 'page' . DS . 'layout';
+Vue::$DossierModel = __DIR__ . DS . 'app' . DS . 'page';
 Vue::$DossierScript = __DIR__ . DS . 'public' . DS . 'script';
 Vue::$DossierStyle = __DIR__ . DS . 'public' . DS . 'style';
 
