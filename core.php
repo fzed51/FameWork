@@ -36,7 +36,6 @@ try {
     echo '<!--';
     print_r(get_loaded_extensions());
     echo '-->';
-    phpinfo(INFO_MODULES);
 } catch (\Core\Routeur\RouteNotFoundException $e) {
     header("HTTP/1.0 404 Not Found");
     echo "<h1>{$e->getMessage()}</h1>";
