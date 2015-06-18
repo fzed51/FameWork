@@ -24,6 +24,8 @@
  * THE SOFTWARE.
  */
 
+require "./core/tools.php";
+
 function trace($message) {
     $filename = __DIR__ . '/log/log.txt';
     $handle = fopen($filename, 'a+');
@@ -34,7 +36,7 @@ function trace($message) {
 trace("\n-------------------------------------------------------------------------\n");
 if (php_sapi_name() == 'cli-server') {
     trace(print_r($_SERVER, true));
-    $fullNamePublic = $_SERVER["DOCUMENT_ROOT"] . '\public' . $_SERVER["REQUEST_URI"];
+    $fullNamePublic = concatPath($_SERVER["DOCUMENT_ROOT"], 'public/' . $_SERVER["REQUEST_URI"], '\\');
     if (is_file($fullNamePublic)) {
         $path = pathinfo($fullNamePublic);
         switch ($path["extension"]) {
