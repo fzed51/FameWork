@@ -1,4 +1,9 @@
 <?php
+
+use Core\Routeur\Routeur;
+use Core\Session\Csrf;
+use Core\Session\Session;
+
 if (isset($new)) {
     $action = Routeur::getUrl('News.Update', ['id' => $new->id]);
     $new_titre = $new->titre;
@@ -15,24 +20,21 @@ if (isset($new)) {
 <a href="<?= Routeur::getUrl('News.index') ?>">&Lt;</a><br>
 <form action="<?= $action ?>" method="POST">
     <?php
-    $csrf = new \Core\Session\Csrf(new \Core\Session\Session());
+    $csrf = new Csrf(new Session());
     echo $csrf->getInput();
     ?>
 
     <input type="hidden" name="_METHODE" value="POST" />
-    <div>
-        <label>
-            Titre
-            <input type="text" name="data[titre]" value="<?= $new_titre; ?>"/>
-        </label>
+    <div class="form-group">
+        <label for="data_titre_" class="form-control">Titre</label>
+        <input type="text" name="data[titre]" id="data_titre_" class="form-control" value="<?= $new_titre; ?>"/>
+    </div>
+    <div class="form-group">
+        <label> Commentaire </label>
+        <textarea name="data[text]" id="data_text_" class="form-control"><?= $new_text; ?></textarea>
+
     </div>
     <div>
-        <label>
-            Commentaire<br>
-            <textarea name="data[text]"><?= $new_text; ?></textarea>
-        </label>
-    </div>
-    <div>
-        <button type="submit"><?= $lib_btn; ?></button>
+        <button type="submit" class="btn btn-default"><?= $lib_btn; ?></button>
     </div>
 </form>

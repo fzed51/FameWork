@@ -1,4 +1,3 @@
-<a href="<?= Routeur::getUrl('home'); ?>">Home</a>
 <div class="news">
     <?php foreach ($news as $new): ?>
         <div class="new">
