@@ -27,32 +27,32 @@
 namespace Core;
 
 class App {
-	
-	private static $factories = [];
-	
-	public function set($key, $factory, $generator = true) {
-		if (isset($this->$factories[$key])){
-			throw new Exception("La factory '$key' existe déjà !");
-		}
-		
-		$this->$factories[$key] = [$factory, $generator];	
-	}
-	
-	public function get($key){
-		if (!isset($this->$factories[$key])){
-			throw new Exception("La factory '$key' n'existe pas !");
-		}
-		
-		list($factory, $generator) = $this->$factories[$key];
-		if ($generator){
-			return call_user_func($factory);
-		} else {
-			if(is_callable($factory)){
-				$factory = call_user_func($factory);
-				$this->$factories[$key] = [$factory, $generator];
-			}
-			return $factory;
-		}
-	}
-		
+
+    public static $factories = [];
+
+    public static function set($key, $factory, $generator = true) {
+        if (isset(self::$factories[$key])) {
+            throw new Exception("La factory '$key' existe déjà !");
+        }
+
+        self::$factories[$key] = [$factory, $generator];
+    }
+
+    public static function get($key) {
+        if (!isset(self::$factories[$key])) {
+            throw new Exception("La factory '$key' n'existe pas !");
+        }
+
+        list($factory, $generator) = self::$factories[$key];
+        if ($generator) {
+            return call_user_func($factory);
+        } else {
+            if (is_callable($factory)) {
+                $factory = call_user_func($factory);
+                self::$factories[$key] = [$factory, $generator];
+            }
+            return $factory;
+        }
+    }
+
 }

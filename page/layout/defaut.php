@@ -16,6 +16,11 @@ $this->addFileScript('bootstrap');
         <div id="master_content">
             <?= $this->content; ?>
         </div>
+        <?php if (Core\App::get('config')->isModeDebug): ?>
+            <pre>
+                <?= var_dump(Core\App::$factories) ?>
+            </pre>
+        <?php endif; ?>
         <?= $this->script; ?>
     </body>
 </html>

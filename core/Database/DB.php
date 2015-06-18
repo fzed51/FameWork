@@ -26,6 +26,9 @@
 
 namespace Core\Database;
 
+use Core\App;
+use PDO;
+
 /**
  * Description of Db
  *
@@ -34,12 +37,13 @@ namespace Core\Database;
 class Db {
 
     private static $instance = null;
-    protected static $fileData = __DIR__ . "\\db.sqlite";
+    protected static $fileData;
 
     public static function getInstance() {
         static::TestExtensionChargee();
         if (is_null(static::$instance)) {
-            static::$instance = new \PDO('sqlite:' . static::$fileData);
+            static::$fileData = App::get('config')->database->datafile;
+            static::$instance = new PDO('sqlite:' . static::$fileData);
         }
         return static::$instance;
     }
@@ -51,14 +55,14 @@ class Db {
     public static function getAllTable($tableName) {
         $cnx = static::getInstance();
         $stmt = $cnx->query("SELECT * FROM $tableName");
-        return $stmt->fetchAll(\PDO::FETCH_CLASS);
+        return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
 
     public static function getIdTable($tableName, $id) {
         $cnx = static::getInstance();
         $stmt = $cnx->prepare("SELECT * FROM $tableName WHERE `id` = ?");
         $stmt->execute([$id]);
-        $reponse = $stmt->fetchAll(\PDO::FETCH_CLASS);
+        $reponse = $stmt->fetchAll(PDO::FETCH_CLASS);
         if ($reponse === false) {
             return [];
         } else {

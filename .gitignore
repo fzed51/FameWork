@@ -26,6 +26,7 @@ vendor/
 
 ### Projet ###
 # ----------
+/app/config.ini
 log/
 *.log
 *.log.txt
