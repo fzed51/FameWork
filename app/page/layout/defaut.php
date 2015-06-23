@@ -27,9 +27,26 @@
         <div class="container">
             <?= $this->content; ?>
             <?php if (Core\App::get('config')->isModeDebug): ?>
-                <pre>
-                    <?= var_dump(Core\App::$factories) ?>
-                </pre>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <?php
+                        if (isset($_SESSION)) {
+                            var_dump($_SESSION);
+                        }
+                        ?>
+                    </div>
+                    <div class="col-lg-4">
+                        <?php
+                        var_dump(get_defined_vars());
+                        $constante = get_defined_constants(true);
+                        var_dump($constante['user']);
+                        ?>
+                    </div>
+                    <div class="col-lg-4">
+                        <?= var_dump($_SERVER); ?>
+                    </div>
+                </div>
             <?php endif; ?>
         </div>
         <?= $this->script; ?>
