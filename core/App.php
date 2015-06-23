@@ -28,7 +28,7 @@ namespace Core;
 
 class App {
 
-    public static $factories = [];
+    private static $factories = [];
 
     public static function set($key, $factory, $generator = true) {
         if (isset(self::$factories[$key])) {
