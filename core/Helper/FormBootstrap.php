@@ -33,8 +33,8 @@ namespace Core\Helper;
  */
 class FormBootstrap extends form {
 
-	public function input(/* string */ $field, /* string */ $label = null, array $attributs = array()) {
-		parent::input($field, );
-	}
+    public function input(/* string */ $field, /* string */ $label = null, array $attributs = array()) {
+        parent::input($field, );
+    }
 
 }
