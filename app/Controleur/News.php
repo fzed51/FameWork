@@ -24,7 +24,7 @@ class News extends Controleur {
     }
 
     function post_Create() {
-        $csrf = new Csrf(new Session());
+        $csrf = new \Csrf(new \Session());
         $csrf->check();
         \DB::insertInTable('NEWS', \Requete::input('data'));
         $this->index();
