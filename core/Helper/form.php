@@ -31,7 +31,7 @@ namespace Core\Helper;
  *
  * @author fabien.sanchez
  */
-class form extends ElementHtml {
+class Form extends ElementHtml {
 
     private $data;
     private $error;

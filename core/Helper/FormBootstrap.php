@@ -31,10 +31,108 @@ namespace Core\Helper;
  *
  * @author fzed51
  */
-class FormBootstrap extends form {
+class FormBootstrap {
 
-    public function input(/* string */ $field, /* string */ $label = null, array $attributs = array()) {
-        parent::input($field, );
+    private $error;
+    private $nom;
+    private $data;
+    private $html;
+
+    public function __construct($nom = 'data', $data = array(), $error = array()) {
+        $this->nom = $nom;
+        $this->data = $data;
+        $this->error = $error;
+        $this->html = new Html();
+    }
+
+    public function start($action, array $attributs = array(), /* string */ $id = '') {
+        $defaultAttrbs = array(
+            'accept-charset' => '',
+            // ISO-8859-1
+            // ISO-8859-15
+            // UTF-8
+            'autocomplete' => '', // on | off
+            'enctype' => '',
+            // application/x-www-form-urlencoded
+            // multipart/form-data
+            // text/plain
+            'method' => 'POST', // GET | POST
+            'name' => '',
+            'novalidate' => false,
+            'target' => ''
+            // _blank
+            // _self
+            // _parent
+            // _top
+        );
+
+        if (strlen($this->nom) > 0 && !isset($attributs['name'])) {
+            $attributs['name'] = $this->nom;
+        } elseif (strlen($id) > 0 && !isset($attributs['name'])) {
+            $attributs['name'] = $id;
+        }
+
+        $attributs = array_merge($defaultAttrbs, $attributs, array(
+            'action' => $action
+        ));
+
+        if (strlen($id) > 0) {
+            $attributs = array_merge($attributs, array(
+                'id' => $id
+            ));
+        }
+
+        return $this->html->formStart($attributs);
+    }
+
+    public function end() {
+        return $this->html->formEnd();
+    }
+
+    private function getData($field) {
+        if (isset($this->data->$field)) {
+            return $this->data->$field;
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     *
+     * @param string $field
+     * @param string $label
+     * @return string
+     */
+    public function input(/* string */ $field, /* string */ $label = null) {
+        $labelHtml = '';
+        if (!is_null($label)) {
+            $labelHtml = $this->html->label(['for' => "{$this->nom}_{$field}"], $label);
+        }
+        return $this->html->div(
+                ['class' => 'form-group']
+                , ($labelHtml . $this->html->input([
+                    'id' => "{$this->nom}_{$field}",
+                    'class' => 'form-control',
+                    'name' => "{$this->nom}[{$field}]",
+                    'value' => $this->getData($field)
+                ]))
+        );
+    }
+
+    public function textarea(/* string */ $field, /* string */ $label = null, /* int */ $row = 4) {
+        $labelHtml = '';
+        if (!is_null($label)) {
+            $labelHtml = $this->html->label(['for' => "{$this->nom}_{$field}"], $label);
+        }
+        return $this->html->div(
+                ['class' => 'form-group']
+                , ($labelHtml . $this->html->textarea([
+                    'id' => "{$this->nom}_{$field}",
+                    'class' => 'form-control',
+                    'name' => "{$this->nom}[{$field}]",
+                    'rows' => $row
+                    ], $this->getData($field)))
+        );
     }
 
 }

@@ -38,20 +38,25 @@ class ElementHtml {
      * @param array $listeAttributs
      * @return string
      */
-    protected function concatAttributs(array $listeAttributs) {
+    private function concatAttributs(array $listeAttributs) {
         $strAttribut = array();
         foreach ($listeAttributs as $key => $value) {
-            if (!is_bool($value)) {
-                if (strlen($value) > 0) {
-                    $strAttribut[] = strtolower($key) . '="' . $value . '"';
-                }
-            } else {
-                if ($value) {
-                    $strAttribut[] = strtolower($key);
-                }
-            }
+            $strAttribut[] = $this->resolveAttribut($key, $value);
         }
         return join(' ', $strAttribut);
+    }
+
+    private function resolveAttribut($key, $value) {
+        if (!is_bool($value)) {
+            if (strlen($value) > 0) {
+                return strtolower($key) . '="' . $value . '"';
+            }
+        } else {
+            if ($value) {
+                return strtolower($key);
+            }
+        }
+        return '';
     }
 
     protected function startElement($tag, $attrbs = array()) {
