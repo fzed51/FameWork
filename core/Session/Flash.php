@@ -33,30 +33,36 @@ namespace Core\Session;
  */
 class Flash {
 
-    const IDSESSION = "__WIDGET__FLASH__";
+	const IDSESSION = "__WIDGET__FLASH__";
 
-    protected $flash_type = [
-        'info' => 0,
-        'warning' => 1,
-        'error' => 2
-    ];
+	protected $flash_type = [
+		'info' => 0,
+		'warning' => 1,
+		'error' => 2
+	];
 
-    /**
-     * @var \Session
-     */
-    private $session;
+	/**
+	 * @var \Session
+	 */
+	private $session;
+	private $session;
 
-    public function __construct(\Session $session) {
-        $this->session = $session;
-    }
+	public function __construct(\Session $session) {
+		$this->session = $session;
+	}
 
-    public function set($type, $message) {
+	public function set($type, $message) {
+		if(!isset($this->session[self::IDSESSION]) {
+			$this->session[self::IDSESSION] = [];
+		}
+		if(!isset($this->session[self::IDSESSION][$type]) {
+			$this->session[self::IDSESSION][$type] = [];
+		}
+	}
 
-    }
-
-    public function __call($name, $arguments) {
-        array_unshift($arguments, $name);
-        call_user_method_array('set', $this, $arguments);
-    }
+	public function __call($name, $arguments) {
+		array_unshift($arguments, $name);
+		call_user_method_array('set', $this, $arguments);
+	}
 
 }
