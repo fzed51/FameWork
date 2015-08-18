@@ -52,7 +52,7 @@ class Flash {
 	}
 
 	public function set($type, $message) {
-		if(!isset($this->session[self::IDSESSION]) {
+		if (!isset($this->session[self::IDSESSION])) {
 			$this->session[self::IDSESSION] = [];
 		}
 		if(!isset($this->session[self::IDSESSION][$type]) {
