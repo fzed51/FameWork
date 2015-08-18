@@ -3,8 +3,6 @@
 namespace App\Controleur;
 
 use Core\Controleur\Controleur;
-use Core\Session\Csrf;
-use Core\Session\Session;
 
 /**
  * Description of News
@@ -26,35 +24,35 @@ class News extends Controleur {
     }
 
     function post_Create() {
-        $csrf = new Csrf(new Session());
+        $csrf = new \Csrf(new \Session());
         $csrf->check();
         \DB::insertInTable('NEWS', \Requete::input('data'));
         $this->index();
     }
 
     function get_Read($id) {
-        $new = \Db::getIdTable('NEWS', $id);
+        $new = \DB::getIdTable('NEWS', $id);
         $vue = new \Vue('news.read');
         $vue->setData('new', $new);
         echo $vue->render();
     }
 
     function get_Update($id) {
-        $new = \Db::getIdTable('NEWS', $id);
+        $new = \DB::getIdTable('NEWS', $id);
         $vue = new \Vue('news.edit');
         $vue->setData('new', $new);
         echo $vue->render();
     }
 
     function post_Update($id) {
-        $csrf = new Csrf(new Session());
+        $csrf = new \Csrf(new \Session());
         $csrf->check();
         \DB::updateIdTable('NEWS', $id, \Requete::input('data'));
         $this->index();
     }
 
     function get_delete($id) {
-        $csrf = new Csrf(new Session());
+        $csrf = new \Csrf(new \Session());
         $csrf->check();
         \DB::deleteIdTable('NEWS', $id);
         $this->index();

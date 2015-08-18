@@ -33,45 +33,50 @@ namespace Core\Helper;
  */
 class ElementHtml {
 
-	/**
-	 * formate une liste d'attributs HTML
-	 * @param array $listeAttributs
-	 * @return string
-	 */
-	protected function concatAttributs(array $listeAttributs) {
-		$strAttribut = array();
-		foreach ($listeAttributs as $key => $value) {
-			if (!is_bool($value)) {
-				if (strlen($value) > 0) {
-					$strAttribut[] = strtolower($key) . '="' . $value . '"';
-				}
-			} else {
-				if ($value) {
-					$strAttribut[] = strtolower($key);
-				}
-			}
-		}
-		return join(' ', $strAttribut);
-	}
+    /**
+     * formate une liste d'attributs HTML
+     * @param array $listeAttributs
+     * @return string
+     */
+    private function concatAttributs(array $listeAttributs) {
+        $strAttribut = array();
+        foreach ($listeAttributs as $key => $value) {
+            $strAttribut[] = $this->resolveAttribut($key, $value);
+        }
+        return join(' ', $strAttribut);
+    }
 
-	protected function startElement($tag, $attrbs = array()) {
-		$attrb = $this->concatAttributs($attrbs);
-		return "<$tag $attrb>";
-	}
+    private function resolveAttribut($key, $value) {
+        if (!is_bool($value)) {
+            if (strlen($value) > 0) {
+                return strtolower($key) . '="' . $value . '"';
+            }
+        } else {
+            if ($value) {
+                return strtolower($key);
+            }
+        }
+        return '';
+    }
 
-	protected function endElement($tag) {
-		return "</$tag>";
-	}
+    protected function startElement($tag, $attrbs = array()) {
+        $attrb = $this->concatAttributs($attrbs);
+        return "<$tag $attrb>";
+    }
 
-	protected function element($tag, $attrbs = array(), $content = '') {
-		return $this->startElement($tag, $attrbs)
-			. $content
-			. $this->endElement($tag);
-	}
+    protected function endElement($tag) {
+        return "</$tag>";
+    }
 
-	protected function elementAutoClose($tag, $attrbs = array()) {
-		$attrb = $this->concatAttributs($attrbs);
-		return "<$tag $attrb />";
-	}
+    protected function element($tag, $attrbs = array(), $content = '') {
+        return $this->startElement($tag, $attrbs)
+            . $content
+            . $this->endElement($tag);
+    }
+
+    protected function elementAutoClose($tag, $attrbs = array()) {
+        $attrb = $this->concatAttributs($attrbs);
+        return "<$tag $attrb />";
+    }
 
 }
